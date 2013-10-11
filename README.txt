@@ -1,23 +1,23 @@
-
-Création du projet
+ï»¿
+CrÃ©ation du projet
 ------------------
 
-Environnement installé : JDK 1.7, maven 3, Eclipse avec plugin m2eclipse  
+Environnement installÃ© : JDK 1.7, maven 3, Eclipse avec plugin m2eclipse  
 
 Dans Eclipse, File > New > Other ... > Maven > Maven Project
 
-Alternative : génération du squelette avec la commande maven.
+Alternative : gÃ©nÃ©ration du squelette avec la commande maven.
 mvn archetype:generate -DgroupId=... -DartifactId=... -DarchetypeArtifactId=...
 
 
 Dependances maven
 -----------------
 
-Ajout des libs nécessaires dans maven
+Ajout des libs nÃ©cessaires dans maven
 Pour les services REST : JAX-RS
 Librairie Jackson pour la serialisation POJO
-Pas encore utilisé : Jersey (Anootations @Path )
-On utilise plutôt Spring MVC ( annotations @RequestMapping ...)
+Pas encore utilisÃ© : Jersey (Anootations @Path )
+On utilise plutÃ´t Spring MVC ( annotations @RequestMapping ...)
 Utilisation de Jetty 9.
 Attention : requiert SDK Java 7.
 
@@ -34,31 +34,31 @@ web.xml, mvc-dispatcher-servlet.xml, applicationContext.xml
 
 web.xml : declaration de la servlet. L'URL pattern choisi est url-pattern=/service_rs/*
 
-mvc-dispatcher-servlet.xml : on utilisera les annotations. Penser à mettre : <mvc:annotation-driven />
+mvc-dispatcher-servlet.xml : on utilisera les annotations. Penser Ã  mettre : <mvc:annotation-driven />
 
 applicationContext.xml :  Les servlets sont dans le package <context:component-scan base-package="com.itkweb.menotte.menotte_rs.service" />
 
 
-Specs API Complète
+Specs API ComplÃ¨te
 ------------------
-Pour les requêtes possibles, voir : https://github.com/ITKWeb/menottes/wiki/api
+Pour les requÃªtes possibles, voir : https://github.com/ITKWeb/menottes/wiki/api
 
 
 
-Développements
+DÃ©veloppements
 --------------
 
-Création des POJO dans le model Project.java, Ticket.java
+CrÃ©ation des POJO dans le model Project.java, Ticket.java
 
-Création des services avec annotations Spring MVC en mode POST et GET : ProjectsService, TicketsService
+CrÃ©ation des services avec annotations Spring MVC en mode POST et GET : ProjectsService, TicketsService
 
 Utilisation du plugin m2
 mvn clean intall
 mvn jetty:run
 
-Possibilté de faire en Debug avec Debug Configuration..
+PossibiltÃ© de faire en Debug avec Debug Configuration..
 
-Possibilité d'utiliser le plugin maven (attention version).
+PossibilitÃ© d'utiliser le plugin maven (attention version).
 
 Test manuels :
 --------------
@@ -75,7 +75,7 @@ Sur Firefox : RESTClient
 Sur Chrome : extension REST Console
 
 
-Exemple de Header à envoyer 
+Exemple de Header Ã  envoyer 
 Accept:application/json
 Accept-Encoding:gzip,deflate,sdch
 Accept-Language:fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4
@@ -93,19 +93,19 @@ DELETE : utilisation d'un plugin REST firefox ou Chrome
 Suite TODO :
 ------------
 
-Evaluer les différences avec Jersey.
+Evaluer les diffÃ©rences avec Jersey.
 
 Brancher la persistance. Par ex. avec du noSql.
 Au choix : 
-- mongoDB (orienté documment)
-- Cassandra (Apache, adapté big data, orienté Colonnes / Lignes) 
+- mongoDB (orientÃ© documment)
+- Cassandra (Apache, adaptÃ© big data, orientÃ© Colonnes / Lignes) 
 
 
 
-Problèmes rencontrés :
+ProblÃ¨mes rencontrÃ©s :
 ----------------------
-JDK 1.7 nécessaire à Jetty 9.
-Dépendances / versions maven. Utiliser mvn dependency:tree pour vérifier.
+JDK 1.7 nÃ©cessaire Ã  Jetty 9.
+DÃ©pendances / versions maven. Utiliser mvn dependency:tree pour vÃ©rifier.
 Testing du POST : erreur " Unsupported Media Type". Penser au Header Content-Type:application/json.
 
 
@@ -117,16 +117,16 @@ http://hmkcode.com/spring-mvc-json-json-to-java/
 http://www.mkyong.com/spring-mvc/spring-3-rest-hello-world-example/ (plusieurs autres samples sur ce site en Spring / REST )
 http://www.mkyong.com/spring-mvc/spring-3-mvc-and-json-example
 
-http://getj2ee.over-blog.com/categorie-10315135.html : REST with Spring MVC (Jackson) / Maven. Bons exemples avec passage de paramètres PUT pour l'UPDATE.
+http://getj2ee.over-blog.com/categorie-10315135.html : REST with Spring MVC (Jackson) / Maven. Bons exemples avec passage de paramÃ¨tres PUT pour l'UPDATE.
 
 
 
 http://blog.xebia.fr/2011/11/14/rest-java-serveur/ : tuto Jersey [fr]
-http://www.icysoft.fr/jersey-creation-de-webservices-en-java/ : tuto maven + Jersy pas à pas (plusieurs pages) [fr]
+http://www.icysoft.fr/jersey-creation-de-webservices-en-java/ : tuto maven + Jersy pas Ã  pas (plusieurs pages) [fr]
 
 https://github.com/steveliles/jetty-embedded-spring-mvc projet sample pour config jetty embedded
 
-http://developpement-java.faire-des-jeux.com/controleur-avec-spring-3-mvc-et-maven2/ : Création d'un projet Maven / Spring MVC
+http://developpement-java.faire-des-jeux.com/controleur-avec-spring-3-mvc-et-maven2/ : CrÃ©ation d'un projet Maven / Spring MVC
 
 
 Doc
@@ -142,4 +142,4 @@ Firefox addon : https://addons.mozilla.org/en-US/firefox/addon/restclient/
 
 REST : http://www.packetizer.com/ws/rest.html
 
-Maven http://maven-guide-fr.erwan-alliaume.com/maven-guide-fr/site/reference/simple-project-sect-create-simple.html (site très complet)
+Maven http://maven-guide-fr.erwan-alliaume.com/maven-guide-fr/site/reference/simple-project-sect-create-simple.html (site trÃ¨s complet)
