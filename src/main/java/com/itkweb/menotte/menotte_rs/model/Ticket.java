@@ -2,17 +2,20 @@ package com.itkweb.menotte.menotte_rs.model;
 
 import java.io.Serializable;
 
-public class Ticket implements Serializable{
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
-
+public class Ticket implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4529073322400329646L;
 
+	@Id
 	private Integer id;
 
+	@Indexed
 	private String titre;
 
 	private String description;

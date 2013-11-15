@@ -1,31 +1,44 @@
 package com.itkweb.menotte.menotte_rs.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.itkweb.menotte.menotte_rs.dao.ProjectDao;
+import com.itkweb.menotte.menotte_rs.dao.TicketDao;
 import com.itkweb.menotte.menotte_rs.model.Ticket;
 
 @Controller
-@RequestMapping("/tickets ")
+@RequestMapping("/tickets")
 public class TicketsService {
 
+	@Autowired
+	private TicketDao ticketDao;
+
+	@Autowired
+	private ProjectDao projectDao;
+
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody
-	List<Ticket> getTicketsInJSON() {
+	@ResponseBody
+	public
+	List<Ticket> getAll() {
 
-		Ticket ticket1 = new Ticket();
-		ticket1.setTitre("Premier Ticket");
-		ticket1.setDescription("Un premier ticket pas trop dur");
-		ticket1.setId(1);
+		List<Ticket> tickets = ticketDao.getTickets();
 
-		List<Ticket> tickets = new ArrayList<Ticket>();
-		tickets.add(ticket1);
+		if (tickets == null) {
+
+			Ticket ticket1 = new Ticket();
+			ticket1.setTitre("Premier Ticket");
+			ticket1.setDescription("Un premier ticket pas trop dur");
+			ticket1.setId(1);
+			ticketDao.create(ticket1);
+			tickets = ticketDao.getTickets();
+		}
 
 		return tickets;
 
@@ -35,12 +48,15 @@ public class TicketsService {
 	public @ResponseBody
 	Ticket getProjectsInJSON(@PathVariable Integer id) {
 
-		Ticket ticket = new Ticket();
-		ticket.setTitre("Premier Ticket");
-		ticket.setDescription("Un premier ticket pas trop dur");
-		ticket.setId(id);
+		return ticketDao.getTicket(id);
 
-		return ticket;
+	}
+
+	@RequestMapping(value = "{idProject}/{idSprint}", method = RequestMethod.GET)
+	public @ResponseBody
+	List<Ticket> getProjectsInJSON(@PathVariable Integer idProject, @PathVariable Integer idSprint) {
+
+		return ticketDao.getTicket(idProject, idSprint);
 
 	}
 }
