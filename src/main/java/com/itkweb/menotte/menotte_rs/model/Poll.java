@@ -51,6 +51,4 @@ public class Poll {
 		this.endDate = endDate;
 	}
 
-
-
 }

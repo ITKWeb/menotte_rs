@@ -18,10 +18,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// .jdbcAuthentication()
 		// .dataSource(dataSource)
 		//
-		// .usersByUsernameQuery("select username,password,enabled from users where username = ?")
-		//
-		// .authoritiesByUsernameQuery("select username,authority from authorities where username = ?");
-		.inMemoryAuthentication().withUser("aaa").password("aaa").roles("USER");
+		// .usersByUsernameQuery("select username,password,enabled from users where username
+		= ?")
+				//
+				// .authoritiesByUsernameQuery("select username,authority from authorities where username = ?");
+				.inMemoryAuthentication().withUser("aaa").password("aaa").roles("USER");
 	}
 
 	// TODO : redirection vers notre login
